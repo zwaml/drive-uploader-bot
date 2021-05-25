@@ -13,7 +13,7 @@ from pyrogram.errors import FloodWait, RPCError
 def _download(client, message):
   user_id = message.from_user.id
   if not message.media:
-    sent_message = message.reply_text('🕵️**جاري فحص الرابط ...**', quote=True)
+    sent_message = message.reply_text('🕵️**Checking link...**', quote=True)
     if message.command:
       link = message.command[1]
     else:
@@ -46,16 +46,20 @@ def _download(client, message):
         sent_message.edit(Messages.DOWNLOAD_ERROR.format(file_path, link))
 
 
-@Client.on_message(filters.private & filters.incoming & (filters.document | filters.audio | filters.video) & CustomFilters.auth_users)
+@Client.on_message(filters.private & filters.incoming & (filters.document | filters.audio | filters.video | filters.photo) & CustomFilters.auth_users)
 def _telegram_file(client, message):
   user_id = message.from_user.id
-  sent_message = message.reply_text('🕵️**جاري فحص الملف ...**', quote=True)
+  sent_message = message.reply_text('🕵️**Checking File...**', quote=True)
   if message.document:
     file = message.document
   elif message.video:
     file = message.video
   elif message.audio:
     file = message.audio
+  elif message.photo:
+  	file = message.photo
+  	file.mime_type = "images/png"
+  	file.file_name = f"IMG-{user_id}-{message.message_id}.png"
   sent_message.edit(Messages.DOWNLOAD_TG_FILE.format(file.file_name, humanbytes(file.file_size), file.mime_type))
   LOGGER.info(f'Download:{user_id}: {file.file_id}')
   try:
@@ -68,11 +72,11 @@ def _telegram_file(client, message):
   LOGGER.info(f'Deleteing: {file_path}')
   os.remove(file_path)
 
-@Client.on_message(filters.incoming & filters.private & filters.command(BotCommands.Ytdl) & CustomFilters.auth_users)
+@Client.on_message(filters.incoming & filters.private & filters.command(BotCommands.YtDl) & CustomFilters.auth_users)
 def _ytdl(client, message):
   user_id = message.from_user.id
   if len(message.command) > 1:
-    sent_message = message.reply_text('🕵️**جاري فحص الرابط ...**', quote=True)
+    sent_message = message.reply_text('🕵️**Checking Link...**', quote=True)
     link = message.command[1]
     LOGGER.info(f'YTDL:{user_id}: {link}')
     sent_message.edit(Messages.DOWNLOADING.format(link))
