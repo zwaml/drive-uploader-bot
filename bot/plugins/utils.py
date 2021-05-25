@@ -31,7 +31,7 @@ def _send_log(client, message):
 def _restart(client, message):
   shutil.rmtree(DOWNLOAD_DIRECTORY)
   LOGGER.info('Deleted DOWNLOAD_DIRECTORY successfully.')
-  message.reply_text('**♻️Restarted Successfully !**', quote=True)
+  message.reply_text('**♻️ تمت استعادة الاعدادات الافتراضية بنجاح  !**', quote=True)
   LOGGER.info(f'{message.from_user.id}: Restarting...')
   execl(executable, executable, "-m", "bot")
 
@@ -74,8 +74,8 @@ def map(pos):
 
         button = [
             [
-             InlineKeyboardButton(text = 'Support Chat', url = SUPPORT_CHAT_LINK),
-             InlineKeyboardButton(text = 'Feature Request', url = "https://github.com/viperadnan-git/google-drive-telegram-bot/issues/new")
+             InlineKeyboardButton(text = 'مطور البوت ', url = SUPPORT_CHAT_LINK),
+             InlineKeyboardButton(text = 'قناة البوت ', url = "https://t.me/zwamlallaith")
             ],
             [InlineKeyboardButton(text = '<--', callback_data = f"help+{pos-1}")]
 
@@ -83,8 +83,8 @@ def map(pos):
     else:
         button = [
             [
-                InlineKeyboardButton(text = '<--', callback_data = f"help+{pos-1}"),
-                InlineKeyboardButton(text = '-->', callback_data = f"help+{pos+1}")
+                InlineKeyboardButton(text = 'السابق<--', callback_data = f"help+{pos-1}"),
+                InlineKeyboardButton(text = '--> التالي', callback_data = f"help+{pos+1}")
             ],
         ]
     return button
