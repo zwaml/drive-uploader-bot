@@ -75,9 +75,9 @@ class Messages:
     
     CURRENT_PARENT = "🆔 **اي المجلد الحالي هو  - {}**\nاستخدم  الامر  ```( /{} رابط المجلد )``` لتغييرة "
     
-    REVOKED = f"🔓 **Revoked current logged account successfully.**\n__Use /{BotCommands.Authorize[0]} to authenticate again and use this bot.__"
+    REVOKED = f"🔓 **تم تسجيل الخروج من الحساب بنجاح .**\n بامكانك باي وقت استخدام الامر  /{BotCommands.Authorize[0]} لربط حسابك بالبوت مجددا ."
     
-    NOT_FOLDER_LINK = "❗ **Invalid folder link.**\n__The link you send its not belong to a folder.__"
+    NOT_FOLDER_LINK = "❗ **رابط  ملف غير صحيح .**\nالرابط الذي ارسلته عباره عن رابط مجلد ."
     
     CLONING = "🗂️ **جاري  الاستنساخ في قوقل درايف ...**\nالرابط    - {}__"
     
@@ -91,4 +91,4 @@ class Messages:
     
     EMPTY_TRASH = "🗑️🚮**تم تفريغ سلة المهملات بنجاح  !**"
     
-    PROVIDE_YTDL_LINK = "❗**Provide a valid YouTube-DL supported link.**"
+    PROVIDE_YTDL_LINK = "❗**الرجاء ارسال رابط يوتيوب .**"
