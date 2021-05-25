@@ -6,17 +6,19 @@ class config:
     SUDO_USERS = "" # Sepearted by space.
     SUPPORT_CHAT_LINK = ""
     DOWNLOAD_DIRECTORY = "./downloads/"
+    G_DRIVE_CLIENT_ID = ""
+    G_DRIVE_CLIENT_SECRET = ""
 
 
 class BotCommands:
-  Download = ['download', 'dl','تحميل']
-  Authorize = ['auth', 'authorize','دخول']
-  SetFolder = ['setfolder', 'setfl','مجلد']
-  Revoke = ['revoke','خروج']
-  Clone = ['copy', 'clone','نسخ']
-  Delete = ['delete', 'del','حذف']
-  EmptyTrash = ['emptyTrash','تفريغ']
-  Ytdl = ['ytdl','يوتيوب']
+  Download = ['download', 'dl']
+  Authorize = ['auth', 'authorize']
+  SetFolder = ['setfolder', 'setfl']
+  Revoke = ['revoke']
+  Clone = ['copy', 'clone']
+  Delete = ['delete', 'del']
+  EmptyTrash = ['emptyTrash']
+  YtDl = ['ytdl']
 
 class Messages:
     START_MSG = "**مرحبا عزيزي {}.**\nأنا Google Drive Uploader Bot يمكنك استخدامه لتحميل أي ملف / فيديو إلى Google Drive من رابط مباشر أو ملفات Telegram.\nلمعرفة كيف استخدام البوت اضغط  /help.__"
